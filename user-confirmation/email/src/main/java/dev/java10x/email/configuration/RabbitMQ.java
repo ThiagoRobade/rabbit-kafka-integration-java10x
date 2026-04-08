@@ -1,14 +1,16 @@
 package dev.java10x.email.configuration;
 
 import org.springframework.amqp.core.Queue;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQ {
 
-    private final String QUEUE_NAME = "emailQueue";
+    private final String queueName = "emailQueue";
 
+    @Bean
     public Queue queue() {
-        return new Queue(QUEUE_NAME, true);
+        return new Queue(queueName, true);
     }
 }
